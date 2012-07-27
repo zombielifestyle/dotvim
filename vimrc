@@ -22,6 +22,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'scratch.vim'
 Bundle 'wincent/Command-T'
+Bundle 'Align'
 
 " new snipmate and deps
 " https://github.com/garbas/vim-snipmate
