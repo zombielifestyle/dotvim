@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# get vundle and bundles
+mkdir backup tmp
+git clone  https://github.com/gmarik/vundle.git bundle/vundle
+ln -s ~/.vim/vimrc  ~/.vimrc
+vim +BundleInstall +qall
+
+# build Commant-T deps
+cd ~/.vim/bundle/Command-T/ruby/command-t/
+echo "installing ruby1.8-dev. sudo needed..."
+sudo apt-get install ruby1.8-dev
+ruby extconf.rb && make
+cd -
+
+# add solarized colors for terminal
+ln -s ~/.vim/xresources  ~/.Xresources && xrdb -merge xr esources
