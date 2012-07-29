@@ -22,7 +22,16 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'scratch.vim'
 Bundle 'wincent/Command-T'
-Bundle 'Align'
+
+" Bundle 'Align'
+Bundle 'godlygeek/tabular'
+if exists(":Tabularize")
+    nmap <Leader>a= :Tabularize /=<CR>
+    vmap <Leader>a= :Tabularize /=<CR>
+    nmap <Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
 
 " new snipmate and deps
 " https://github.com/garbas/vim-snipmate
@@ -111,6 +120,9 @@ imap <F1> <Esc>
 
 " edit vimrc
 nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
 " <C-PageUp>/<C-PageDown> switch buffers for runaways
 nmap [5^ <ESC>:bn<CR>
