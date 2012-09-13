@@ -16,7 +16,10 @@ vnoremap // :TComment<CR>
 
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized.git'
+
 Bundle 'mileszs/ack.vim'
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
@@ -35,10 +38,14 @@ endif
 
 " new snipmate and deps
 " https://github.com/garbas/vim-snipmate
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['php'] = 'php,html'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
+
 
 " JS
 Bundle 'pangloss/vim-javascript'
@@ -54,6 +61,8 @@ syntax enable
 set background=dark
 "let g:solarized_termcolors=256
 colorscheme solarized
+" colorscheme holger
+" colorscheme dusk
 
 let mapleader = ","
 set pastetoggle=<F10>
@@ -66,9 +75,10 @@ set number
 set colorcolumn=100
 set cul
 
-set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set nobackup
+set noswapfile
+" set backupdir=~/.vim/backup
+" set directory=~/.vim/tmp
 
 set wildmenu
 set wildmode=longest,list
@@ -86,6 +96,9 @@ set autoindent
 set cindent
 set smarttab
 set expandtab
+
+" set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·
 
 set scrolloff=4
 set sidescrolloff=4
@@ -105,12 +118,21 @@ set t_vb=
 set mousehide
 set mouse=a
 
+set guioptions-=m " remove menu bar
+set guioptions-=T " remove toolbar
+set guioptions-=l " remove left-hand scroll bar
+set guioptions-=r " remove right-hand scroll bar
+set guioptions-=b " remove bottom-hand scroll bar
+set guioptions-=L
+
 " powa!
 set ttyfast 
 set lazyredraw
 
 " as3 support
 au BufRead,BufNewFile *.as set filetype=javascript
+"
+au BufRead,BufNewFile Phakefile set filetype=php
 
 " typos
 command! W w
@@ -124,6 +146,43 @@ if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+
+
 " <C-PageUp>/<C-PageDown> switch buffers for runaways
 nmap [5^ <ESC>:bn<CR>
 nmap [6^ <ESC>:bp<CR>
+
+let g:f5 = "xdo-browser-refresh Google-chrome"
+
+" " F5 and F7 commands {{{
+" noremap <silent> <F4> :w<cr>:call RunF5()<cr>
+" vnoremap <silent> <F4> <esc>:w<cr>:call RunF5()<cr>gv
+" inoremap <silent> <F4> <esc>:w<cr>:call RunF5()<cr>
+" func! RunF5()
+"     echomsg "EXEC " . g:f5
+"         exec "ruby `" . g:f5 . "`"
+" endfunc
+" 
+" noremap <silent> <F7> :w<cr>:call RunF7()<cr>
+" vnoremap <silent> <F7> <esc>:w<cr>:call RunF7()<cr>gv
+" inoremap <silent> <F7> <esc>:w<cr>:call RunF7()<cr>
+" func! RunF7()
+"     echomsg "EXEC " . g:f7
+"         exec "ruby `" . g:f7 . "`"
+" endfunc
+" "}}}
+
+nmap <silent> <F5> <ESC>:!xdo-terminal-run-last-cmd magic <cr><cr>
+imap <silent> <F5> <ESC>:!xdo-terminal-run-last-cmd magic <cr><cr>
+
+nmap <silent> <F6> <ESC>:!xdo-browser-refresh google-chrome <cr><cr>
+imap <silent> <F6> <ESC>:!xdo-browser-refresh google-chrome <cr><cr>
+
+augroup myvimrchooks
+    au!
+    autocmd bufwritepost $MYVIMRC source $MYVIMRC
+augroup END

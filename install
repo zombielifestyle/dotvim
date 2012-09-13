@@ -14,4 +14,4 @@ ruby extconf.rb && make
 cd -
 
 # add solarized colors for terminal
-ln -s ~/.vim/xresources  ~/.Xresources && xrdb -merge xr esources
+ln -s ~/.vim/xresources  ~/.Xresources && xrdb -merge xresources
