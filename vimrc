@@ -52,17 +52,21 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 
-" evaluate
-" https://github.com/xolox/vim-session
+
+" racket
+Bundle 'wlangstroth/vim-racket'
+if has("autocmd")
+    au BufReadPost *.rkt,*.rktl set filetype=racket
+    au filetype racket set lisp
+    au filetype racket set autoindent
+endif
 
 filetype plugin indent on 
 
 syntax enable
+set t_Co=256 
 set background=dark
-"let g:solarized_termcolors=256
-colorscheme solarized
-" colorscheme holger
-" colorscheme dusk
+colorscheme wombat256mod
 
 let mapleader = ","
 set pastetoggle=<F10>
@@ -72,8 +76,8 @@ set laststatus=2
 set cmdheight=2
 set ruler
 set number
-set colorcolumn=100
-set cul
+" set colorcolumn=100
+" set cul
 
 set nobackup
 set noswapfile

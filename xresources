@@ -1,43 +1,42 @@
-*background: #002b36
-*foreground: #657b83
-*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground:#586e75
-*pointerColorForeground:#93a1a1
 
-!! black dark/light
-*color0: #073642
-*color8: #002b36
+*background: #3D0036
+*foreground: #FFADF5
 
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+URxvt*color0:     rgb:00/00/00
+URxvt*color1:     rgb:d3/62/65
+URxvt*color2:     rgb:ae/ce/91
+URxvt*color3:     rgb:e7/e1/8c
+URxvt*color4:     rgb:7a/7a/b0
+URxvt*color5:     rgb:96/3c/59
+URxvt*color6:     rgb:41/81/79
+URxvt*color7:     rgb:be/be/be
+URxvt*color8:     rgb:66/66/66
+URxvt*color9:     rgb:ef/81/71
+URxvt*color10:    rgb:e5/f7/79
+URxvt*color11:    rgb:ff/f7/96
+URxvt*color12:    rgb:41/86/be
+URxvt*color13:    rgb:ef/9e/be
+URxvt*color14:    rgb:71/be/be
+URxvt*color15:    rgb:ff/ff/ff
 
 URxvt*font: xft:terminus:pixelsize=12
 URxvt*boldFont: xft:terminus:bold:pixelsize=12
 URxvt*scrollBar: false
+URxvt*inheritPixmap: true
+URxvt*shading: 3
+URxvt*internalBorder: 4
+URxvt*fading: 40
+
+URxvt*cursorColor: #FF00DD 
+
+! urls
+!URxvt*perl-ext-common: default,matcher
+!URxvt*colorUL: red
+!URxvt*urlLauncher: Google-chrome
+!URxvt*matcher.button:       1
+!URxvt*cursorUnderline:      false
+
+!Xft.dpi:                 96
+!Xft.antialias:           true
+!Xft.hinting:             true
+!Xft.hintstyle:           3
