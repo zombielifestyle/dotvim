@@ -1,6 +1,6 @@
 
-*background: #3D0036
-*foreground: #FFFFFF
+URxvt*background: #3D0036
+URxvt*foreground: #FFFFFF
 
 URxvt*color0:     rgb:00/00/00
 URxvt*color1:     rgb:d3/62/65
