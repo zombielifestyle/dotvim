@@ -1,6 +1,6 @@
 
 *background: #3D0036
-*foreground: #FFADF5
+*foreground: #FFFFFF
 
 URxvt*color0:     rgb:00/00/00
 URxvt*color1:     rgb:d3/62/65
@@ -24,7 +24,7 @@ URxvt*boldFont: xft:terminus:bold:pixelsize=12
 URxvt*scrollBar: false
 URxvt*inheritPixmap: true
 URxvt*shading: 3
-URxvt*internalBorder: 4
+URxvt*internalBorder: 0
 URxvt*fading: 40
 
 URxvt*cursorColor: #FF00DD 
