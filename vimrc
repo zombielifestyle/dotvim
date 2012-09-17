@@ -14,17 +14,24 @@ Bundle 'tomtom/tcomment_vim.git'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'altercation/vim-colors-solarized.git'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'skwp/vim-powerline'
 
 Bundle 'mileszs/ack.vim'
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'scratch.vim'
-Bundle 'wincent/Command-T'
+" Bundle 'wincent/Command-T'
+Bundle 'vim-scripts/YankRing.vim'
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+Bundle 'kien/ctrlp.vim'
 
 " Bundle 'Align'
 Bundle 'godlygeek/tabular'
@@ -35,9 +42,7 @@ if exists(":Tabularize")
     vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
-
 " new snipmate and deps
-" https://github.com/garbas/vim-snipmate
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['php'] = 'php,html'
@@ -46,12 +51,10 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 
-
 " JS
 Bundle 'pangloss/vim-javascript'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
-
 
 " racket
 Bundle 'wlangstroth/vim-racket'
@@ -60,6 +63,10 @@ if has("autocmd")
     au filetype racket set lisp
     au filetype racket set autoindent
 endif
+
+" php
+" pear install doc.php.net/pman
+set keywordprg=pman
 
 filetype plugin indent on 
 
@@ -133,6 +140,11 @@ set guioptions-=L
 set ttyfast 
 set lazyredraw
 
+" persistent undo
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
+set undodir=~/.vim/backups
+set undofile
+
 " as3 support
 au BufRead,BufNewFile *.as set filetype=javascript
 "
@@ -146,10 +158,11 @@ imap <F1> <Esc>
 
 " edit vimrc
 nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-endif
 
+" write with sudo
+cnoremap w!! w !sudo tee % >/dev/null
+
+" copy/paste
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 nnoremap <leader>y "+y
@@ -185,8 +198,3 @@ imap <silent> <F5> <ESC>:!xdo-terminal-run-last-cmd magic <cr><cr>
 
 nmap <silent> <F6> <ESC>:!xdo-browser-refresh google-chrome <cr><cr>
 imap <silent> <F6> <ESC>:!xdo-browser-refresh google-chrome <cr><cr>
-
-augroup myvimrchooks
-    au!
-    autocmd bufwritepost $MYVIMRC source $MYVIMRC
-augroup END

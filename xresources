@@ -1,3 +1,4 @@
+URxvt*cursorColor: #F077DE 
 
 URxvt*background: #3D0036
 URxvt*foreground: #FFFFFF
@@ -21,22 +22,14 @@ URxvt*color15:    rgb:ff/ff/ff
 
 URxvt*font: xft:terminus:pixelsize=12
 URxvt*boldFont: xft:terminus:bold:pixelsize=12
+!URxvt*termName: xterm-256color
 URxvt*scrollBar: false
-URxvt*inheritPixmap: true
-URxvt*shading: 3
+URxvt*saveLines: 4096
+!URxvt*inheritPixmap: true
+!URxvt*transparent: true
+!URxvt*shading: 3
 URxvt*internalBorder: 0
-URxvt*fading: 40
+URxvt*externalBorder: 0
+URxvt*fading: 20 
 
-URxvt*cursorColor: #FF00DD 
 
-! urls
-!URxvt*perl-ext-common: default,matcher
-!URxvt*colorUL: red
-!URxvt*urlLauncher: Google-chrome
-!URxvt*matcher.button:       1
-!URxvt*cursorUnderline:      false
-
-!Xft.dpi:                 96
-!Xft.antialias:           true
-!Xft.hinting:             true
-!Xft.hintstyle:           3
